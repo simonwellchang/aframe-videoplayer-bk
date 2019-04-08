@@ -5,6 +5,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>民視歷史館VR電影院</title>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <!-- <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script> -->
     <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
     <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
 
@@ -51,7 +52,7 @@
       <a-assets>
         <img src="assets/white_grid_thin.png" id="grid" crossorigin="anonymous">
         <video id="video-src" src="assets/dragon.mp4" autoplay crossorigin="anonymous" webkit-playsinline playsinline></video>
-</video>
+        </video>
       </a-assets>
 
       <!-- CURSOR -->
@@ -78,6 +79,7 @@
 
       <!-- PROGRESSBAR -->
       <a-entity id="progress-bar" geometry="primitive: plane; width: 4; height: 0.06;"
+      
           material="transparent: true; visible:false; opacity: 0;" position="0 0.1 -6">
         <a-plane id="progress-bar-track" width="4" height="0.06" color="black" position="0 0 0.005" opacity="0.2" visible="false"></a-plane>
         <a-plane id="progress-bar-fill" width="0" height="0.06" color="#7198e5" position="-2 0 0.01" visible="false"></a-plane>
@@ -90,6 +92,19 @@
           material="src: #grid; repeat: 10000 10000; transparent: true; opacity:0.3;"></a-entity>
       <a-sky color="#dbdedb"></a-sky>
       <a-entity light="color: #FFF; intensity: 1; type: ambient;"></a-entity>
+      <!-- 文字顯示 -->
+      <a-entity
+          geometry="primitive: plane; width: 13; height: auto"
+          material="color: black; opacity: 0.5"
+          text="color: yellow; align: center; value: 青龍好漢 Qinglong hero Ep1"
+          position="0 8 -5.4"
+          animation="property: components.text.material.uniforms.opacity.value; to: 0; dir: alternate; loop: true">
+      </a-entity>
+      <!-- END 文字顯示 -->
+  
+  
+  
+
       <!-- END ENVIRONMENT -->
     </a-scene>
 
